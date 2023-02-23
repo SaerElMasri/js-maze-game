@@ -11,7 +11,7 @@ body{
     align-items: center;
 }
 .maze-board{
-    background-color: cadetblue;
+    background-color: #5f9ea0;
     width: 90%;
     height: 90vh;
     display: flex;
@@ -27,7 +27,7 @@ body{
     align-items: center;
 }
 .maze-board-lost{
-    background-color: red;
+    background-color:rgb(255,0,0);
     width: 90%;
     height: 90vh;
     display: flex;
@@ -98,6 +98,7 @@ body{
     background-color: greenyellow;
     width: 30%;
     height: 15vh;
+    cursor: pointer;
 }
 .end{
     border: 1px solid black;
