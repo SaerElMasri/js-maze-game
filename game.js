@@ -10,7 +10,6 @@ document.getElementById("start").addEventListener("click", function (){
     score = 0;
     document.getElementById("score").innerHTML = score;
 });
-
 document.getElementById("end").addEventListener("mouseover", function(){
     var walls = document.getElementsByClassName("boundary");
         for (var i = 0; i < walls.length; i++) {
@@ -21,17 +20,11 @@ document.getElementById("end").addEventListener("mouseover", function(){
     score += 5;
     document.getElementById("score").innerHTML = score;
 });
-
-document.getElementById("game").addEventListener("mouseleave", function(){
-
-});
-
 var boundaries = document.querySelectorAll("#game div.boundary");
 for (var i = 0; i < boundaries.length; i++) {
     boundaries[i].addEventListener("mouseover", wall_touched);
     boundaries[i].addEventListener("mouseleave", wall_touched);
 }
-
 function wall_touched() {
     var walls = document.getElementsByClassName("boundary");
     for (var i = 0; i < walls.length; i++) {
