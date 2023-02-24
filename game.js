@@ -1,4 +1,4 @@
-var score = 1;
+var score = 0;
 document.getElementById("start").addEventListener("click", function (){
     var walls = document.getElementsByClassName("boundary");
     for (var i = 0; i < walls.length; i++) {
@@ -7,7 +7,10 @@ document.getElementById("start").addEventListener("click", function (){
             var resultMsg = document.getElementById("status").innerHTML = "Move your mouse over the 'S' to begin.";
         }
     }
+    score = 0;
+    document.getElementById("score").innerHTML = score;
 });
+
 document.getElementById("end").addEventListener("mouseover", function(){
     var walls = document.getElementsByClassName("boundary");
         for (var i = 0; i < walls.length; i++) {
@@ -15,13 +18,20 @@ document.getElementById("end").addEventListener("mouseover", function(){
             var resultMsg = document.getElementById("status").innerHTML = "You win!";
         }
     }
-    document.getElementById("score").innerHTML = score++;
+    score += 5;
+    document.getElementById("score").innerHTML = score;
 });
+
+document.getElementById("game").addEventListener("mouseleave", function(){
+
+});
+
 var boundaries = document.querySelectorAll("#game div.boundary");
 for (var i = 0; i < boundaries.length; i++) {
     boundaries[i].addEventListener("mouseover", wall_touched);
     boundaries[i].addEventListener("mouseleave", wall_touched);
 }
+
 function wall_touched() {
     var walls = document.getElementsByClassName("boundary");
     for (var i = 0; i < walls.length; i++) {
@@ -30,15 +40,6 @@ function wall_touched() {
             var resultMsg = document.getElementById("status").innerHTML = "You Lose!";
         }
     }
-    score = 0;
-    document.getElementById("score").innerHTML = score++;
-}
-function game_end() {
-    var walls = document.getElementsByClassName("boundary");
-    for (var i = 0; i < walls.length; i++) {
-        if (walls[i].style.backgroundColor != "red") {
-            var resultMsg = document.getElementById("status").innerHTML = "You win!";
-        }
-    }
-    document.getElementById("score").innerHTML = score++;
+    score -= 10;
+    document.getElementById("score").innerHTML = score;
 }
